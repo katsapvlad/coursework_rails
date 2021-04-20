@@ -1,0 +1,22 @@
+<h2>Услуги</h2>
+
+<% @favours.each do |u|%>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+        <img src="<%= u.image_link %>" width="200" height="200" alt="упс..." class="scale">
+        <br><br><h3><%= u.title %></h3><br>
+        <h5><%= u.description %></h5>
+        <div class="price"><br>
+        <table>
+          <tr>
+             <td> <h2><%= u.price %> Br. &emsp;</h2> </td>
+             <td> <button class="btn btn-outline-warning">Заказать</button></td>
+          </tr>
+        </table><br>
+    </div>
+  </div>
+</div>
+
+<% end %>
