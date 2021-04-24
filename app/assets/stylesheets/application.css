@@ -39,10 +39,30 @@ padding-right: 30px;
 font-family: Roboto;
 }
 
+.sign_in_helper{
+	padding-top: 20px;
+}
+
 a{
 	color:#C4C4C4;
 	text-decoration: none;
 	font-family: Roboto;
+}
+
+.sign_in{
+  padding-top: 70px; 
+}
+
+.form-group {
+  padding-top: 5px; 
+}
+
+.scale_form {
+  transition: 0.5s; 
+}
+
+.scale_form:hover {
+  transform: scale(1.1);
 }
 
 .scale {
