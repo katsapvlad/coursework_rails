@@ -1,22 +1,15 @@
 <h2>Услуги</h2>
 
-<% @favours.each do |favour|%>
 
 <div class="container">
+	<% @favours.each do |favour|%>
   <div class="row">
     <div class="col-sm">
-        <img src="<%= favour.image_link %>" width="200" height="200" alt="упс..." class="scale">
+        <a href="/favours/<%= favour.id %>"><img src="<%= favour.image_link %>" width="200" height="200" alt="упс..." class="scale_form"></a>
         <br><br><h3><%= favour.title %></h3><br>
-        <h5><%= favour.description %></h5>
-        <div class="price"><br>
-        <table>
-          <tr>
-             <td> <h2><%= favour.price %> Br. &emsp;</h2> </td>
-             <td> <button class="btn btn-outline-warning">Заказать</button></td>
-          </tr>
-        </table><br>
-    </div>
   </div>
 </div>
-
 <% end %>
+</div>
+
+

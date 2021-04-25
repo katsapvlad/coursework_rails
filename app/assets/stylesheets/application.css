@@ -49,12 +49,59 @@ a{
 	font-family: Roboto;
 }
 
+p{
+	text-decoration: none;
+	font-family: Roboto;
+}
+
 .sign_in{
   padding-top: 70px; 
 }
 
+.nav-item{
+	align-self: right;
+}
+
 .form-group {
   padding-top: 5px; 
+}
+
+h2 {
+	font-family: Roboto;
+	padding-top: 40px;
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+h5 {
+	font-family: Roboto;
+}
+
+
+h3 {
+	font-family: Roboto;
+}
+
+.col-sm{
+	text-align: center;
+}
+
+.rightimg  {
+   float: right; /* Выравнивание по правому краю  */ 
+   margin: 0 20px 0 40px; /* Отступы вокруг картинки */
+}
+
+.content{
+	padding-right: 200px;
+	padding-left: 200px;
+}
+
+.manage-table{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
 }
 
 .scale_form {
@@ -71,4 +118,10 @@ a{
 
 .scale:hover {
   transform: scale(1.2);
+}
+
+.container {
+padding-top: 30px;
+display:grid;
+grid-template-columns: repeat(3,1fr)
 }

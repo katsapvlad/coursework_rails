@@ -1,31 +1,30 @@
-<form action="/favours/new" method="POST" align="center" class="form-horizontal">
-  <div class="form-group">
-    <label class="col-sm-4 control-label"></label>
+<h2>Создание услуги</h2>
+<div class="form" align="center">
+<%= form_with model: @favour, url: favours_path do |form| %>
+  <div class="form-group scale_form">
     <div class="col-sm-4">
-      <input name="title" type="text" class="form-control"  placeholder="Введите название">
+    <%= form.text_field :title, class: "form-control", placeholder: "Введите название" %>
     </div>
   </div>
-  <div class="form-group">
-    <label class="col-sm-4 control-label"></label>
+   <div class="form-group scale_form">
     <div class="col-sm-4">
-      <input name="description" type="text" class="form-control"  placeholder="Введите описание">
+    <%= form.text_field :description, class: "form-control", placeholder: "Введите описание" %>
     </div>
   </div>
-  <div class="form-group">
-    <label class="col-sm-4 control-label"></label>
+  <div class="form-group scale_form">
     <div class="col-sm-4">
-      <input name="price" type="text" class="form-control"  placeholder="Введите стоимость">
+    <%= form.text_field :price, class: "form-control", placeholder: "Введите стоимость" %>
     </div>
   </div>
-  <div class="form-group">
-    <label class="col-sm-4 control-label"></label>
+  <div class="form-group scale_form">
     <div class="col-sm-4">
-      <input name="image_link" type="text" class="form-control"  placeholder="Введите ссылку на изображение">
+    <%= form.text_field :image_link, class: "form-control", placeholder: "Введите ссылку на изображение" %>
     </div>
   </div>
-  <div class="form-group">
+   <div class="form-group scale_form">
     <div class="col-sm-offset-4 col-sm-4">
-      <br><button type="submit" class="btn btn-primary">Подтвердить</button>
+      <br><button type="submit" class="btn btn-lg btn-success">Добавить</button>
     </div>
   </div>
-</form>
+<% end %>
+</div>

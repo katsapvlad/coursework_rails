@@ -64,8 +64,23 @@
         </div>
       </li>
     </ul>
+    <% elsif Admin.find_by_id(session[:admin_id])%>
+      <li class="nav-item dropdown scale">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= Admin.find_by_id(session[:admin_id]).email %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item">
+            <%= button_to "Выйти из профиля", logout_path, method: :delete, class: "btn btn-outline" %>
+          </a>
+          <a class="dropdown-item" href="/manage">&emsp;Управлять</a>
+        </div>
+      </li>
+    </ul>
     <% else %>
-    <a class="btn btn-outline-warning my-2 my-sm-0" href="/sign_in">Войти</a>
+    <form class="form-inline my-2 my-lg-0">
+      <a class="btn btn-outline-warning my-2 my-sm-0" href="/sign_in">Войти</a>
+    </form>
     <% end%>
   </div>
 </nav>
