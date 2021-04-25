@@ -1,0 +1,30 @@
+<h2>Создание новости</h2>
+<div class="form" align="center">
+<%= form_with model: @news, url: "/news" do |form| %>
+  <div class="form-group scale_form">
+    <div class="col-sm-4">
+    <%= form.text_field :title, class: "form-control", placeholder: "Введите название" %>
+    </div>
+  </div>
+   <div class="form-group scale_form">
+    <div class="col-sm-4">
+    <%= form.text_field :text, class: "form-control", placeholder: "Введите текст" %>
+    </div>
+  </div>
+  <div class="form-group scale_form">
+    <div class="col-sm-4">
+    <%= form.text_field :image_link, class: "form-control", placeholder: "Введите ссылку на изображение" %>
+    </div>
+  </div>
+  <div class="admin_id">
+    <div class="col-sm-4">
+    <%= form.text_field :admin_id, class: "form-control", value: Admin.find(session[:admin_id]).id %>
+    </div>
+  </div>
+   <div class="form-group scale_form">
+    <div class="col-sm-offset-4 col-sm-4">
+      <br><button type="submit" class="btn btn-lg btn-success">Добавить</button>
+    </div>
+  </div>
+<% end %>
+</div>

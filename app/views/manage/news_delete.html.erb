@@ -1,6 +1,6 @@
-<h2>Удаление статьи</h2>
-<p align="center">Введите id удаляемой статьи</p>
-<form action="/manage/articles_delete" method="POST">
+<h2>Удаление новости</h2>
+<p align="center">Введите id удаляемой новости</p>
+<form action="/manage/news_delete" method="POST">
 <div class="form" align="center">
   <div class="form-group scale_form">
     <div class="col-sm-3">
@@ -9,7 +9,7 @@
   </div>
    <div class="form-group scale_form">
     <div class="col-sm-offset-4 col-sm-4">
-      <%= button_to "Удалить", url: articles_path, method: :destroy %>
+      <%= button_to "Удалить", url: "/news", method: :destroy %>
     </div>
   </div>
 </div>
