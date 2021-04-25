@@ -73,6 +73,12 @@ h2 {
 	padding-bottom: 40px;
 }
 
+small{
+	color:#666666;
+}
+
+.admin_id { display: none; }
+
 h5 {
 	font-family: Roboto;
 }

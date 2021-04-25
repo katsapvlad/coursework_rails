@@ -1,6 +1,6 @@
-<h2>Удаление</h2>
-<p align="center">Введите id удаляемого элемента</p>
-<form action="/manage/delete" method="POST">
+<h2>Удаление услуги</h2>
+<p align="center">Введите id удаляемой услуги</p>
+<form action="/manage/favours_delete" method="POST">
 <div class="form" align="center">
   <div class="form-group scale_form">
     <div class="col-sm-3">
@@ -9,7 +9,7 @@
   </div>
    <div class="form-group scale_form">
     <div class="col-sm-offset-4 col-sm-4">
-      <%= button_to "Удалить", class: "btn btn-danger", url: @path, method: :destroy %>
+     <%= button_to "Удалить", url: favours_path, method: :destroy %>
     </div>
   </div>
 </div>
