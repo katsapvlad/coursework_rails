@@ -9,6 +9,7 @@
 <small>by <%= User.find(news_comment.user_id).name %></small>
 <br><br>
 <% end %>
+<% if session[:user_id] = nil %>
 <h2>Оставить комментарий</h2>
 <div class="form" align="center">
 <%= form_with model: @news_comment, url: "/news_comments" do |form| %>
@@ -22,7 +23,7 @@
   </div>
   <div class="user_id">
     <div class="col-sm-4">
-    <%= form.text_field :user_id, class: "form-control", value: User.find(session[:user_id]).id %>
+    <%= form.text_field :user_id, class: "form-control", value: @user_id %>
     </div>
   </div>
   <div class="news_id">
@@ -30,6 +31,7 @@
     <%= form.text_field :news_id, class: "form-control", value: @news_item.id %>
     </div>
   </div>
+<% end %>
 <% end %>
 </div>
 </div>

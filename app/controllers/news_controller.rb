@@ -10,10 +10,8 @@ class NewsController < ApplicationController
 
   def create
     news_item = News.new(news_params)
-    @news = News.all
     if news_item.save
-      flash.now[:notice] = 'Success!'
-      render action: 'new'
+      rendirect_to '/news'
     else
       flash.now[:notice] = news_item.errors.full_messages.to_s
       render action: 'new'
@@ -23,14 +21,16 @@ class NewsController < ApplicationController
   def show
     @news_item = News.find_by_id(params[:id])
     @news_comments = NewsComment.where('news_id = ?', params[:id])
+    if session[:user_id] != nil
+      @user_id = User.find(session[:user_id]).id
+    end
   end
 
   def destroy
     news_item = News.find(params[:destroy_id])
     if news_item.destroy
       @news = News.all
-      flash.now[:notice] = 'Success!'
-      render action: 'index'
+      rendirect_to '/news'
     else
       flash.now[:notice] = news_item.errors.full_messages.to_s
       render action: 'destroy'

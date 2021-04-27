@@ -9,10 +9,8 @@ class FavoursController < ApplicationController
 
   def create
     favour = Favour.new(favour_params)
-    @favours = Favour.all
     if favour.save
-      flash.now[:notice] = 'Success!'
-      render action: 'new'
+      redirect_to '/favours/'
     else
       flash.now[:notice] = favour.errors.full_messages.to_s
       render action: 'new'
@@ -28,8 +26,7 @@ class FavoursController < ApplicationController
     favour = Favour.find(params[:destroy_id])
     if favour.destroy
       @favours = Favour.all
-      flash.now[:notice] = 'Success!'
-      render action: 'index'
+      redirect_to '/favours'
     else
       flash.now[:notice] = favour.errors.full_messages.to_s
       render action: 'destroy'

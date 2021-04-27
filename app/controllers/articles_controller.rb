@@ -10,10 +10,9 @@ class ArticlesController < ApplicationController
 
   def create
     article = Article.new(article_params)
-    @articles = Article.all
     if article.save
       flash.now[:notice] = 'Success!'
-      render action: 'new'
+      redirect_to '/articles'
     else
       flash.now[:notice] = article.errors.full_messages.to_s
       render action: 'new'
@@ -23,14 +22,16 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find_by_id(params[:id])
     @article_comments = ArticleComment.where('article_id = ?', params[:id])
+    if session[:user_id] != nil
+      @user_id = User.find(session[:user_id]).id
+    end
   end
 
   def destroy
     article = Article.find(params[:destroy_id])
     if article.destroy
-      @articles = Article.all
       flash.now[:notice] = 'Success!'
-      render action: 'index'
+      redirect_to '/articles'
     else
       flash.now[:notice] = article.errors.full_messages.to_s
       render action: 'destroy'

@@ -1,0 +1,90 @@
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<h2>Отзывы</h2>
+<% @reviews.each do |review|%>
+<br><br>	
+<h3><%= review.text %></h3>
+<% review.rating.times do %>
+	<img src="/star.png" width="20" height="20">
+<% end %>
+<br><small><%= review.created_at %></small><br>
+<%if review.user_id != nil %>
+<small>by <%= User.find(review.user_id).name %></small>
+<br><br>
+<% end %>
+<% end %>
+
+
+<% if session[:user_id] != nil %>
+<h2>Оставить отзыв</h2>
+<div class="form" align="center">
+<%= form_with model: @review, url: "/reviews" do |form| %>
+
+<div class="form-group" id="rating-ability-wrapper">
+	    <label class="control-label" for="rating">
+	    <span class="field-label-header">Пожалуйста, оцените качество оказания услуг и оставьте свой отзыв!</span><br>
+	    <br><span class="field-label-info"></span>
+	    <%= form.text_field :rating, id: "selected_rating", type: "hidden" %>
+	    </label>
+	    <h3 class="bold rating-header" style="">
+	    <span class="selected-rating">0</span><small> / 5</small>
+	    </h2>
+	    <button type="button" class="btnrating btn btn-default btn-lg" data-attr="1" id="rating-star-1">
+	        <i class="fa fa-star" aria-hidden="true"></i>
+	    </button>
+	    <button type="button" class="btnrating btn btn-default btn-lg" data-attr="2" id="rating-star-2">
+	        <i class="fa fa-star" aria-hidden="true"></i>
+	    </button>
+	    <button type="button" class="btnrating btn btn-default btn-lg" data-attr="3" id="rating-star-3">
+	        <i class="fa fa-star" aria-hidden="true"></i>
+	    </button>
+	    <button type="button" class="btnrating btn btn-default btn-lg" data-attr="4" id="rating-star-4">
+	        <i class="fa fa-star" aria-hidden="true"></i>
+	    </button>
+	    <button type="button" class="btnrating btn btn-default btn-lg" data-attr="5" id="rating-star-5">
+	        <i class="fa fa-star" aria-hidden="true"></i>
+	    </button>
+	</div>
+
+  <div class="form-group scale_form">
+    <div class="col-sm-6">
+		<%= form.text_area :text, class: "form-control", placeholder: "Ваш отзыв" %>
+    </div>
+  </div>
+   <div class="form-group scale_form">
+      <br><button type="submit" class="btn btn-lg btn-success">Отправить</button>
+  </div>
+  <div class="user_id">
+    <div class="col-sm-4">
+    <%= form.text_field :user_id, class: "form-control", value: @user_id %>
+    </div>
+  </div>
+<% end %>
+<% end %>
+
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+	    
+	$(".btnrating").on('click',(function(e) {
+	
+	var previous_value = $("#selected_rating").val();
+	
+	var selected_value = $(this).attr("data-attr");
+	$("#selected_rating").val(selected_value);
+	
+	$(".selected-rating").empty();
+	$(".selected-rating").html(selected_value);
+	
+	for (i = 1; i <= selected_value; ++i) {
+	$("#rating-star-"+i).toggleClass('btn-warning');
+	$("#rating-star-"+i).toggleClass('btn-default');
+	}
+	
+	for (ix = 1; ix <= previous_value; ++ix) {
+	$("#rating-star-"+ix).toggleClass('btn-warning');
+	$("#rating-star-"+ix).toggleClass('btn-default');
+	}
+	
+	}));	
+});
+</script>
