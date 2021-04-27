@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  def new 
+  def new
     @user = User.new
   end
 
@@ -7,10 +7,10 @@ class RegistrationsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash.now[:notice] = "Success!!!"
+      flash.now[:notice] = 'Success!!!'
       render action: 'new'
     else
-      flash.now[:notice] = "#{@user.errors.full_messages}"
+      flash.now[:notice] = @user.errors.full_messages.to_s
       render action: 'new'
     end
   end

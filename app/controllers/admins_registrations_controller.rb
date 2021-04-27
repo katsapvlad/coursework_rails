@@ -1,5 +1,5 @@
 class AdminsRegistrationsController < ApplicationController
-  def new 
+  def new
     redirect_to root_path unless session[:admin_id]
     @admin = Admin.new
   end
@@ -8,10 +8,10 @@ class AdminsRegistrationsController < ApplicationController
     @admin = Admin.new(admin_params)
     if @admin.save
       session[:admin_id] = @admin.id
-      flash.now[:notice] = "Success!!!"
+      flash.now[:notice] = 'Success!!!'
       render action: 'new'
     else
-      flash.now[:notice] = "#{@admin.errors.full_messages}"
+      flash.now[:notice] = @admin.errors.full_messages.to_s
       render action: 'new'
     end
   end

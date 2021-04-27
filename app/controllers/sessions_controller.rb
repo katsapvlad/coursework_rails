@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-
-  end
+  def new; end
 
   def create
     admin = Admin.find_by(email: params[:email])
@@ -13,7 +11,7 @@ class SessionsController < ApplicationController
       session[:admin_id] = admin.id
       redirect_to root_path
     else
-      flash[:alert] = "Invalid email or password"
+      flash[:alert] = 'Invalid email or password'
       render :new
     end
   end
