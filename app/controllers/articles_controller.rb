@@ -22,8 +22,8 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find_by_id(params[:id])
     @article_comments = ArticleComment.where('article_id = ?', params[:id])
-    if session[:user_id] != nil
-      @user_id = User.find(session[:user_id]).id
+    if session[:user_id]
+       @user_id = User.find(session[:user_id]).id
     end
   end
 

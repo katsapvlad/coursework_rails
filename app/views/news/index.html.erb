@@ -1,14 +1,26 @@
 <h2>Новости</h2>
 
+<div class=breadcrumbs>
+   <div class="btn-group btn-breadcrumb">
+      <a href="/" class="btn btn-default">Главная</a>
+      <p class="breadcrumbs-symbol"> > </p>
+      <a class="btn btn-default disabled">Новости</a>
+   </div>
+</div>
+
+<div class="favours-description">
+	<p>В данном разделе мы собираем самые актуальные, свежие и интересные новости об изменениях в системе высшего образования Беларуси, экономических науках и смежных научных областях, а так же новости нашей компании, в том числе скидки и различные акционные предложения</p>
+</div>
+
 <div class="container">
 	<% @news.each do |news|%>
   <div class="row">
     <div class="col-sm">
-        <a href="/news/<%= news.id %>"><img src="<%= news.image_link %>" width="200" height="200" alt="упс..." class="scale_form"></a>
-        <br><br><h3><%= news.title %></h3>
+        <a href="/news/<%= news.id %>"><img src="<%= news.image_link %>" width="250" height="200" alt="упс..." class="scale_form"></a>
+        <br><br><h5><%= news.title %></h5>
         <small><%= news.created_at %></small><br>
         <small>by <%= Admin.find(news.admin_id).email %></small>
   </div>
 </div>
 <% end %>
-</div>
+</div><br><br>

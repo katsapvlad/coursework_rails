@@ -1,8 +1,9 @@
 class ArticleCommentsController < ApplicationController
+
   def create
     article_comment = ArticleComment.new(article_comment_params)
     flash.now[:notice] = if article_comment.save
-                           'Success!'
+                           redirect_to "/articles/#{Article.find(article_comment.article_id).id}"
                          else
                            article_comment.errors.full_messages.to_s
                          end

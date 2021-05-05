@@ -1,21 +1,36 @@
-<div class="content">
+
 <h2><%= @article.title %></h2>
 
+<div class=breadcrumbs>
+   <div class="btn-group btn-breadcrumb">
+      <a href="/" class="btn btn-default">Главная</a>
+      <p class="breadcrumbs-symbol"> > </p>
+      <a href="/articles" class="btn btn-default">Статьи</a>
+      <p class="breadcrumbs-symbol"> > </p>
+      <a class="btn btn-default disabled"><%= @article.title %></a>
+   </div>
+</div>
+<div class="content">
 <p><img src="<%= @article.image_link %>" alt="<%= @article.title %>" width="500" height="370" class="rightimg"><%= @article.text %></p>
 <h2>Комментарии</h2>
 <% @article_comments.each do |article_comment|%>
-<h3><%= article_comment.text %></h3>
+<hr>
+<div class="comment">
+<h5><%= article_comment.text %></h5>
+</div>
+<div class="by">
 <small><%= article_comment.created_at %></small><br>
+</div>
 <small>by <%= User.find(article_comment.user_id).name %></small>
-<br><br>
 <% end %>
-<% if session[:user_id] = nil %>
+<hr>
+<%if session[:user_id]%>
 <h2>Оставить комментарий</h2>
 <div class="form" align="center">
 <%= form_with model: @article_comment, url: "/article_comments" do |form| %>
   <div class="form-group scale_form">
-    <div class="col-sm-6">
-		<%= form.text_area :text, class: "form-control", placeholder: "Введите комментарий" %>
+    <div class="col-sm-8">
+		<%= form.text_area :text, class: "form-control", placeholder: "Введите комментарий", rows: 5 %>
     </div>
   </div>
    <div class="form-group scale_form">
@@ -36,3 +51,4 @@
 </div>
 </div>
 </div>
+<br><br>

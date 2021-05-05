@@ -11,7 +11,7 @@ class NewsController < ApplicationController
   def create
     news_item = News.new(news_params)
     if news_item.save
-      rendirect_to '/news'
+      redirect_to '/news'
     else
       flash.now[:notice] = news_item.errors.full_messages.to_s
       render action: 'new'
@@ -21,7 +21,7 @@ class NewsController < ApplicationController
   def show
     @news_item = News.find_by_id(params[:id])
     @news_comments = NewsComment.where('news_id = ?', params[:id])
-    if session[:user_id] != nil
+    if session[:user_id]
       @user_id = User.find(session[:user_id]).id
     end
   end
@@ -30,7 +30,7 @@ class NewsController < ApplicationController
     news_item = News.find(params[:destroy_id])
     if news_item.destroy
       @news = News.all
-      rendirect_to '/news'
+      redirect_to '/news'
     else
       flash.now[:notice] = news_item.errors.full_messages.to_s
       render action: 'destroy'

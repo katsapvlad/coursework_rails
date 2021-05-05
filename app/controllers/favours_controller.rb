@@ -20,6 +20,9 @@ class FavoursController < ApplicationController
   def show
     id = params[:id]
     @favour = Favour.find_by_id(id)
+    if session[:user_id] != nil
+      @user_id = User.find(session[:user_id]).id
+    end
   end
 
   def destroy

@@ -1,14 +1,27 @@
 <h2>Статьи</h2>
 
+<div class=breadcrumbs>
+   <div class="btn-group btn-breadcrumb">
+      <a href="/" class="btn btn-default">Главная</a>
+      <p class="breadcrumbs-symbol"> > </p>
+      <a class="btn btn-default disabled">Статьи</a>
+   </div>
+</div>
+
+<div class="favours-description">
+	<p>В данном разделе мы собираем самые полезные (с точки зрения авторов нашей компании) статьи, касаемые как конкретных областей экономической науки, таких как бухгалтерский учет, ревизия, аудит и т.д., так и системы сдачи и оформления студенческих работ. Надеемся, данные статьи помогут Вам понять интересующие Вас экономические дисциплины на более углубленном уровне, а так же, при необходимости, самостоятельно оформить и сдать любую студенческую работу</p>
+</div>
+
 <div class="container">
 	<% @articles.each do |article|%>
   <div class="row">
     <div class="col-sm">
-        <a href="/articles/<%= article.id %>"><img src="<%= article.image_link %>" width="200" height="200" alt="упс..." class="scale_form"></a>
-        <br><br><h3><%= article.title %></h3>
+        <a href="/articles/<%= article.id %>"><img src="<%= article.image_link %>" width="250" height="200" alt="упс..." class="scale_form"></a>
+        <br><br><h5><%= article.title %></h5>
         <small><%= article.created_at %></small><br>
         <small>by <%= Admin.find(article.admin_id).email %></small>
   </div>
 </div>
 <% end %>
+<br><br><br>
 </div>

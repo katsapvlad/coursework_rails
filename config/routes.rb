@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index'
 
   post '/favours/new', to: 'favours#create'
-
   post '/articles/new', to: 'articles#create'
-
   post '/news/new', to: 'news#create'
-
+  post '/questions/new', to: 'questions#create'
+  post '/favours/:id', to: 'orders#create'
+  get 'success', to: 'success#index'
+  get 'success_order', to: 'success_order#index'
   get 'sign_up', to: 'registrations#new'
   post 'sign_up', to: 'registrations#create'
 
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
 
   delete 'logout', to: 'sessions#destroy'
   resources :articles
+  resources :orders
   resources :news
   resources :about
   resources :reviews

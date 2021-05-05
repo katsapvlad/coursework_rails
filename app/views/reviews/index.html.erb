@@ -1,21 +1,33 @@
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 <h2>Отзывы</h2>
+
+<div class=breadcrumbs>
+   <div class="btn-group btn-breadcrumb">
+      <a href="/" class="btn btn-default">Главная</a>
+      <p class="breadcrumbs-symbol"> > </p>
+      <a class="btn btn-default disabled">Отзывы</a>
+   </div>
+</div>
+
+<div class="content">
 <% @reviews.each do |review|%>
-<br><br>	
-<h3><%= review.text %></h3>
+<hr>
 <% review.rating.times do %>
 	<img src="/star.png" width="20" height="20">
 <% end %>
-<br><small><%= review.created_at %></small><br>
-<%if review.user_id != nil %>
+<br><br><h5><%= review.text %></h5>
+<div class="by">
+<small><%= review.created_at %></small>
+</div>
+<%if review.user_id%>
 <small>by <%= User.find(review.user_id).name %></small>
-<br><br>
+<br>
 <% end %>
 <% end %>
-
-
-<% if session[:user_id] != nil %>
+<hr>
+</div>
+<%if session[:user_id]%>
 <h2>Оставить отзыв</h2>
 <div class="form" align="center">
 <%= form_with model: @review, url: "/reviews" do |form| %>
@@ -46,12 +58,12 @@
 	    </button>
 	</div>
 
-  <div class="form-group scale_form">
+  <div class="form-group">
     <div class="col-sm-6">
-		<%= form.text_area :text, class: "form-control", placeholder: "Ваш отзыв" %>
+		<%= form.text_area :text, class: "form-control", placeholder: "Ваш отзыв", rows: "5" %>
     </div>
   </div>
-   <div class="form-group scale_form">
+   <div class="form-group">
       <br><button type="submit" class="btn btn-lg btn-success">Отправить</button>
   </div>
   <div class="user_id">
@@ -61,7 +73,7 @@
   </div>
 <% end %>
 <% end %>
-
+<br><br>
 <script type="text/javascript">
 	jQuery(document).ready(function($){
 	    
