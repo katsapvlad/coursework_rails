@@ -1,6 +1,5 @@
 class AdminsRegistrationsController < ApplicationController
   def new
-    redirect_to root_path unless session[:admin_id]
     @admin = Admin.new
   end
 
