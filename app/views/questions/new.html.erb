@@ -1,0 +1,20 @@
+<h2>Создание FAQ</h2>
+<div class="form" align="center">
+<%= form_with model: @faq, url: "/questions" do |form| %>
+  <div class="form-group">
+    <div class="col-sm-6">
+    <%= form.text_field :question, class: "form-control", placeholder: "Введите вопрос" %>
+    </div>
+  </div>
+   <div class="form-group">
+    <div class="col-sm-6">
+    <%= form.text_area :answer, class: "form-control", placeholder: "Введите ответ", rows: "5"%>
+    </div>
+  </div>
+   <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-4">
+      <br><button type="submit" class="btn btn-lg btn-success">Добавить</button>
+    </div>
+  </div>
+<% end %>
+</div>

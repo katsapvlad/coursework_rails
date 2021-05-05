@@ -1,0 +1,18 @@
+<h2>Часто задаваемые вопросы</h2>
+
+
+<div class=breadcrumbs>
+   <div class="btn-group btn-breadcrumb">
+      <a href="/" class="btn btn-default">Главная</a>
+      <p class="breadcrumbs-symbol"> > </p>
+      <a class="btn btn-default disabled">FAQ</a>
+   </div>
+</div>
+
+<div class="content">
+<% @questions.each do |question|%>
+<hr><br>
+<h3><%= question.question %></h3>
+<p><%= question.answer %></p>
+<br><% end %>
+</div>

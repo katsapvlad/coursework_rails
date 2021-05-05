@@ -1,0 +1,18 @@
+<h2>Заказы</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>E-mail</th>
+			<th>Услуга</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @orders.each do |order|%>
+		<tr>
+			<td><%= User.find_by_id(order.user_id).email %></td>
+			<td><%= Favour.find_by_id(order.favour_id).title %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

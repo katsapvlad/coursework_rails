@@ -1,0 +1,24 @@
+<h2>Услуги</h2>
+
+<div class=breadcrumbs>
+   <div class="btn-group btn-breadcrumb">
+      <a href="/" class="btn btn-default">Главная</a>
+      <p class="breadcrumbs-symbol"> > </p>
+      <a class="btn btn-default disabled">Услуги</a>
+   </div>
+</div>
+
+<div class="favours-description">
+	<p>Мы предлагаем Вам услуги по подготовке и оформлению работ по экономическим специальностям (бухгалтерский учет, аудит, ревизия и т.п.) для учащихся ВУЗов и ССУЗов. Все проекты пишутся с учетом требований Вашего учебного заведения и используя только актуальные нормативные и правовые документы и литературу. Вы делаете заказ непосредственно у исполнителя, а это существенно снижает стоимость за счет отсутствия посреднических накруток. </p>
+</div>
+
+<div class="container">
+	<% @favours.each do |favour|%>
+  <div class="row">
+    <div class="col-sm">
+        <a href="/favours/<%= favour.id %>"><img src="<%= favour.image_link %>" width="250" height="200" alt="упс..." class="scale_form"></a>
+        <br><br><h5><%= favour.title %></h5><br>
+  </div>
+</div>
+<% end %>
+</div>

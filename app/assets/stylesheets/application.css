@@ -1,18 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
  @font-face {
 	font-family: 'Roboto'; 
 	src: url(roboto-light.ttf); 
@@ -20,6 +5,11 @@
 
 .navbar-brand-logo{
 	padding-left: 30px;
+}
+
+.rating-header {
+    margin-top: -10px;
+    margin-bottom: 10px;
 }
 
 .navbar-brand{
@@ -39,10 +29,89 @@ padding-right: 30px;
 font-family: Roboto;
 }
 
+.sign_in_helper{
+	padding-top: 20px;
+}
+
 a{
 	color:#C4C4C4;
 	text-decoration: none;
 	font-family: Roboto;
+}
+
+p{
+	text-decoration: none;
+	font-family: Roboto;
+}
+
+.sign_in{
+  padding-top: 70px; 
+}
+
+.nav-item{
+	align-self: right;
+}
+
+.form-group {
+  padding-top: 5px; 
+}
+
+h2 {
+	font-family: Roboto;
+	padding-top: 120px;
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+small{
+	color:#666666;
+}
+
+.admin_id { display: none; }
+
+.user_id { display: none; }
+
+.news_id { display: none; }
+
+.favour_id { display: none; }
+
+h5 {
+	font-family: Roboto;
+}
+
+
+h3 {
+	font-family: Roboto;
+}
+
+.col-sm{
+	text-align: center;
+}
+
+.rightimg  {
+   float: right;
+   margin: 0 20px 0 40px;
+}
+
+.content{
+	padding-right: 180px;
+	padding-left: 180px;
+}
+
+.manage-table{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+
+.scale_form {
+  transition: 0.5s; 
+}
+
+.scale_form:hover {
+  transform: scale(1.1);
 }
 
 .scale {
@@ -51,4 +120,108 @@ a{
 
 .scale:hover {
   transform: scale(1.2);
+}
+
+.container {
+padding-top: 30px;
+display:grid;
+grid-template-columns: repeat(3,1fr)
+}
+
+.breadcrumbs {
+	padding-left: 170px;
+	padding-bottom: 20px; 
+}
+
+.breadcrumbs-symbol {
+	padding-top: 6px;
+}
+
+.favours-description {
+	padding-left: 180px;
+	padding-right: 180px;
+	padding-bottom: 20px; 
+}
+
+.by {
+	margin-left: 900px;
+	margin-top: -30px;
+}
+
+#sliderInner{
+	margin-top: 55px;
+}
+
+.scale_button {
+  transition: 1s; 
+}
+
+.scale_button:hover {
+  transform: scale(1.2);
+}
+
+.list3b {
+	padding:0;
+	list-style: none;
+	counter-reset: li;
+}	
+.list3b li {
+	position: relative;
+	border-left: 4px solid #DDDDDD;
+	padding:16px 20px 16px 28px;
+	margin:12px 0 12px 80px;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+.list3b li:before {
+	line-height: 32px;
+	position: absolute;
+	top: 10px;
+	left:-80px;
+	width:80px;
+	text-align:center;
+	font-size: 24px;
+	font-weight: bold;
+	color: #DDDDDD;
+	counter-increment: li;
+	content: counter(li);
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;		
+}
+.list3b li:hover:before {
+	color: #77AEDB;
+}
+.list3b li:after {
+    position: absolute;
+    top: 26px;
+    left: -40px;
+    width: 60px;
+    height: 60px;
+    border: 8px solid #3399FF;
+    border-radius: 50%;
+    content: '';
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0.1);
+    -moz-transform: translateX(-50%) translateY(-50%) scale(0.1);
+    transform: translateX(-50%) translateY(-50%) scale(0.1);
+    pointer-events: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;		
+}
+.list3b li:hover:after {
+    opacity: 0.2;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+    -moz-transform: translateX(-50%) translateY(-50%) scale(1);
+    transform: translateX(-50%) translateY(-50%) scale(1);
+}	
+
+.comment {
+	margin-right: 200px;
 }

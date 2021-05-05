@@ -1,0 +1,46 @@
+
+<h2><%= @favour.title %></h2>
+
+<div class=breadcrumbs>
+   <div class="btn-group btn-breadcrumb">
+      <a href="/" class="btn btn-default">Главная</a>
+      <p class="breadcrumbs-symbol"> > </p>
+      <a href="/favours" class="btn btn-default">Услуги</a>
+      <p class="breadcrumbs-symbol"> > </p>
+      <a class="btn btn-default disabled"><%= @favour.title  %></a>
+   </div>
+</div>
+<div class="content">
+<p><img src="<%= @favour.image_link %>" alt="<%= @favour.title %>" width="500" height="370" class="rightimg"><%= @favour.description %></p>
+
+<% if session[:user_id]%>
+<%= form_with model: @order, url: "/orders" do |form| %>
+  <div class="user_id">
+    <div class="col-sm-4">
+    <%= form.text_field :user_id, class: "form-control", value: User.find(session[:user_id]).id %>
+    </div>
+  </div>
+  <div class="favour_id">
+    <div class="col-sm-4">
+    <%= form.text_field :favour_id, class: "form-control", value: @favour.id %>
+    </div>
+  </div>
+  <h2>Закажите студенческую работу и в течение получаса с Вами свяжутся наши специалисты!</h2>
+   <div class="form-group" align="center">
+  <div class="scale_button">
+    <%@user = User.find(session[:user_id])%>
+      <br><button type="submit" class="btn btn-lg btn-success">Заказать студенческую работу</button>
+</div>
+  </div>
+  <br>
+<% end %>
+<%else%>
+  <h2>Закажите студенческую работу и в течение получаса с Вами свяжутся наши специалисты!</h2>
+   <div class="form-group" align="center">
+  <div class="scale_button">
+    <br><br><a type="button" href="/sign_in" class="btn btn-lg btn-success">Заказать бесплатную консультацию</a>
+    </div>
+  </div>
+  <br>
+</div>
+<% end %>
