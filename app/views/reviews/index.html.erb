@@ -16,7 +16,9 @@
 <% review.rating.times do %>
 	<img src="/star.png" width="20" height="20">
 <% end %>
+<div class="comment">
 <br><br><h5><%= review.text %></h5>
+</div>
 <div class="by">
 <small><%= review.created_at %></small>
 </div>
