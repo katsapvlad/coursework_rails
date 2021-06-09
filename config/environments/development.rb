@@ -79,7 +79,7 @@ config.action_mailer.smtp_settings = {
   port:                 587,
   domain:               'gmail.com',
   user_name:            'ecodipmanager@gmail.com',
-  password:             'blyadskiyparol',
+  password:             'zxXcb375!@8',
   authentication:       'plain',
   enable_starttls_auto: true }
 end
