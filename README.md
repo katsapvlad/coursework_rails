@@ -1,25 +1,11 @@
-# README
+This website is a platform for providing educational services to students of economic specialties
+The user can order the necessary service or consultation, get acquainted with the news and articles. 
+The administrator receives an email after each order.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Technology stack:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# coursework_rails
+* Ruby 2.7.2
+* Rails 6.1.3
+* Database: Postgres 1.1
+* UI: Bootstrap
+* Deploy: Heroku (https://salty-shelf-56741.herokuapp.com/)
